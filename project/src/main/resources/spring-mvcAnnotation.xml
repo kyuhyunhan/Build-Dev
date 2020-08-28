@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns= "http://www.springframework.org/schema/beans"
+xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+xmlns:websocket="http://www.springframework.org/schema/websocket"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/websocket
+http://www.springframework.org/schema/websocket/spring-websocket-4.1.xsd">
+<!-- 요청 url과 controller 연결 // path(item)로 들어오면 해당 controller(itemController)와 연결해준다.  -->
+<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"></bean>
+<context:component-scan base-package="controller, logic, dao, aop, websocket"></context:component-scan>
+<mvc:annotation-driven></mvc:annotation-driven>
+<!-- AOP 설정을 annotation 방식으로 설정한다. -->
+<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="viewClass">
+		<value>org.springframework.web.servlet.view.JstlView</value>
+	</property>
+	<property name="prefix">
+		<value>/WEB-INF/view/</value>
+	</property>
+	<property name="suffix">
+		<value>.jsp</value>
+	</property>
+	<!-- index ==> /WEB-INF/view/index.jsp로 설정 -->
+</bean>
+<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	<property name="basenames">
+		<list><value>messages</value></list>
+	</property>
+</bean>
+<!-- 파일 업로드 관련 설정: enctype='multipart/form-data'로 들어오면 자동 실행 -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" 
+ p:maxUploadSize="104857600" p:maxInMemorySize="10485760"></bean>
+
+<!-- 예외 처리 관련 설정: 예외별로 해당 view를 지정할 수 있다. -->
+<bean id="exceptionHandler" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<property name="exceptionMappings">
+		<value>exception.CartEmptyException=exception
+		exception.LoginException=exception
+		exception.BoardException=exception</value>
+	</property>
+</bean>
+
+</beans>
+
+

@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding="UTF-8" ?>
+<decorators defaultdir="/layout">
+	<decorator name="group" page="grouplayout.jsp">
+		<pattern>/group/*</pattern>
+	</decorator>
+	<decorator name="main" page="layout.jsp">
+		<pattern>*.dev</pattern>
+	</decorator>
+	<excludes>
+	<pattern>/board/imgupload*</pattern>
+	<pattern>/admin/graph*</pattern>
+	<pattern>/ajax/*</pattern>
+	</excludes>
+</decorators>
