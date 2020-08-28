@@ -16,7 +16,7 @@
 <br>
 
 ## 2. 담당 개발 업무  
-### 회원 관리 및 공통 기능
+### :couple: 회원 관리 및 공통 기능
 :one: 회원 가입 화면 및 유효성 검사<br>
 :two: 로그인, 아이디 찾기 및 비밀번호 찾기<br>
 :three: 로그아웃<br>
@@ -25,20 +25,20 @@
 
 <br>
 
-### 관리자 페이지
+### :hammer: 관리자 페이지
 :one: 신고 관리 및 회원 관리<br>
 :two: 신고된 회원에게 경고메세지 발송. 경고받은 회원은 횟수 카운트됨 (AJAX)
 :three: 회원 강제 탈퇴
 
 <br>
 
-### 프로필 모달(회원 이름 클릭 시 모달 팝업)
+### :massage: 프로필 모달(회원 이름 클릭 시 모달 팝업) 
 :one: 포트폴리오 링크, my TIL 링크, 쪽지 보내기, 신고하기<br>
 :two: 쪽지 보내기와 신고하기는 추가 모달 통해 사용 (AJAX)
 
 <br>
 
-### My Portfolio 작성 / 수정
+### :pencil2: My Portfolio 작성 / 수정 
 :one: 자신의 Position, Skill 관련 정보를 태그를 이용하여 입력 및 삭제<br>
 :two: Github url 추가, 공개/비공개 설정<br>
 :three: 프로젝트 추가/삭제, 공개 여부 설정 (AJAX)<br>
@@ -46,6 +46,6 @@
 
 <br>
 
-### My Portfolio 
+### :scroll: My Portfolio 
 :one: <Profile> : 이름, 프로필 이미지, 이메일, 쪽지보내기, Github url과 position, skill <br>
 :two: <Project Timeline> : '공개'로 설정한 프로젝트에 한해서 시간순으로 정렬하여 출력. 프로젝트명, 참여 인원 및 기간, 세부내용, Github url, 사용 기술 명시
