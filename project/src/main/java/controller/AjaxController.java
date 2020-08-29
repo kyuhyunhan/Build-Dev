@@ -233,6 +233,15 @@ public class AjaxController {
 			return "비밀번호가 변경되었습니다.";
 		
 	}
+	@PostMapping(value="withdraw", produces = "text/plain; charset=UTF-8")
+	public String withdraw (HttpServletRequest request, HttpSession session) {
+		String name = request.getParameter("name");
+		System.out.println(name);
+//		service.deleteAllProjects(name);
+		service.withdraw(name);
+		
+		return "회원탈퇴가 완료되었습니다.";
+	}
 
 	@PostMapping(value = "sendMessage", produces = "text/plain; charset=UTF-8")
 	public String sendMessage(HttpServletRequest request) {

@@ -112,13 +112,35 @@
 				}
 			})
 		})
-		$(".modal-close").on("click", function () {
-		$(".modalfont").show();
-		$(".modalinput").show();
-		$(".find-result").hide();
-		$("#changePW").show();
-	})
 		
+		$(".modal-close").on("click", function () {
+			$(".modalfont").show();
+			$(".modalinput").show();
+			$(".find-result").hide();
+			$("#changePW").show();
+		})
+		
+		$("#withdraw").on("click", function() {
+			var name = $(this).data('username')
+			var pw = $("#pw-withdraw").val()
+			
+			if(pw != '${user.pw}'){
+				alert ("비밀번호 오류")
+				$("#pw-withdraw").val('');
+			} else {
+				$.ajax({
+					url : "${path}/ajax/withdraw.dev",
+					type : "post",
+					data : {
+						name : name
+					},
+					success : function(s) {
+						alert(s);
+						location.href="${path}/user/login.dev";
+					}
+				})
+			}
+		})
 	})
 </script>
 </head>
@@ -204,12 +226,31 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<input type="submit" value="수정">
-								<input type="button" value="탈퇴하기" onclick="location.href='delete.dev?name=${loginUser.name}'">
+								<input type="submit" value="수정">	
+								<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#withdrawalModal">탈퇴하기</button>
+								<%-- <input type="button" value="탈퇴하기" onclick="location.href='delete.dev?name=${loginUser.name}'"> --%>
 							</td>
 						</tr>
 					</table>
 					
+					
+					<div class="modal fade" id="withdrawalModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					  <div class="modal-dialog modal-dialog-centered">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h4 class="modal-title" id="exampleModalLabel">회원 탈퇴하기</h4>
+					      </div>
+					      <div class="modal-body" id="changePw-modalbody">
+					      		<font class="modalfont">비밀번호</font> <input type="text" id="pw-withdraw" class="modalinput"><br><br>
+					        	<div class="find-result"></div>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-secondary modal-close" data-dismiss="modal">닫기</button>
+					        <button type="button" class="btn btn-primary" id="withdraw" data-username="${user.name}">탈퇴하기</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
 					
 					<div class="modal fade" id="changePwModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 					  <div class="modal-dialog modal-dialog-centered">

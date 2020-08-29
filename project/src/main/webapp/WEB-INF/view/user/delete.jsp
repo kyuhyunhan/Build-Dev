@@ -13,7 +13,7 @@
 	<tr><td>이름</td><td>${user.name}</td></tr>
 </table>
 <form action="delete.dev" method="post" name="deleteform">
-	<input type="hidden" name="name" value="${user.name}">
+	<input type="hidden" name="" value="${user.name}">
 	비밀번호<input type="password" name="pw">
 	<input type="submit" value="회원탈퇴">
 </form>

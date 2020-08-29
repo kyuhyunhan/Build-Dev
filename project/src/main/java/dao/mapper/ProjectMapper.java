@@ -45,4 +45,7 @@ public interface ProjectMapper {
 
 	@Delete("Delete from project where name=#{name} and prono=#{prono}")
 	void deleteProject(Map<String, Object> param);
+
+	@Delete("Delete from project where name=#{name}")
+	void deleteAllProjects(Map<String, Object> param);
 }

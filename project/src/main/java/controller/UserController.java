@@ -91,7 +91,7 @@ public class UserController {
 		}
 		return mav;
 	}
-	@GetMapping(value = { "mypage", "delete" })
+	@GetMapping(value = "mypage")
 	public ModelAndView checkview(String id, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		User user;
@@ -124,25 +124,25 @@ public class UserController {
 		}
 		return mav;
 	}
-	@PostMapping("delete")
-	public ModelAndView delete(String name, String pw, HttpSession session) {
-		ModelAndView mav = new ModelAndView();
-		User loginUser = (User) session.getAttribute("loginUser");
-		if(!pw.equals(loginUser.getPw())) {
-			throw new LoginException
-			("비밀번호 오류", "delete.dev?name=" + name);
-		}
-		try {
-			service.delete(name);	
-		}catch(Exception e) {
-			e.printStackTrace();
-			throw new LoginException
-			("탈퇴 오류", "delete.dev?name=" + name);
-		}		
-		session.invalidate();
-		throw new LoginException
-		(name+"님 탈퇴 완료", "login.dev");		
-	}
+//	@PostMapping("delete")
+//	public ModelAndView delete(String name, String pw, HttpSession session) {
+//		ModelAndView mav = new ModelAndView();
+//		User loginUser = (User) session.getAttribute("loginUser");
+//		if(!pw.equals(loginUser.getPw())) {
+//			throw new LoginException
+//			("비밀번호 오류", "delete.dev?name=" + name);
+//		}
+//		try {
+//			service.delete(name);	
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//			throw new LoginException
+//			("탈퇴 오류", "delete.dev?name=" + name);
+//		}		
+//		session.invalidate();
+//		throw new LoginException
+//		(name+"님 탈퇴 완료", "login.dev");		
+//	}
 	
 	@RequestMapping("main")
 	// login 되어야 실행 가능. 메서드이름을 loginxxx로 지정

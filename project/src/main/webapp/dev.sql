@@ -164,8 +164,9 @@ CREATE TABLE Tag
 	no int(11) NOT NULL,
 	wno int(11) NOT NULL,
 	tno int(11) NOT NULL,
+	prono int(11) NOT NULL,
 	tag varchar(50),
-	PRIMARY KEY (no, wno, tno)
+	PRIMARY KEY (no, wno, tno, prono)
 );
 
 
@@ -241,7 +242,7 @@ ALTER TABLE Board
 
 
 ALTER TABLE Message
-	ADD FOREIGN KEY (me_to)
+	ADD FOREIGN KEY (me_from)
 	REFERENCES User (name)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
@@ -249,7 +250,7 @@ ALTER TABLE Message
 
 
 ALTER TABLE Message
-	ADD FOREIGN KEY (me_from)
+	ADD FOREIGN KEY (me_to)
 	REFERENCES User (name)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
@@ -273,7 +274,7 @@ ALTER TABLE Setting
 
 
 ALTER TABLE Subscribe
-	ADD FOREIGN KEY (scrapped)
+	ADD FOREIGN KEY (scrapper)
 	REFERENCES User (name)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
@@ -281,7 +282,7 @@ ALTER TABLE Subscribe
 
 
 ALTER TABLE Subscribe
-	ADD FOREIGN KEY (scrapper)
+	ADD FOREIGN KEY (scrapped)
 	REFERENCES User (name)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT

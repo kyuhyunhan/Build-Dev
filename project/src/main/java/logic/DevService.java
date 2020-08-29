@@ -101,9 +101,13 @@ public class DevService {
 		userDao.update(user);
 	}
 
-	public void delete(String name) {
+	public void withdraw(String name) {
 		userDao.delete(name);
 	}
+
+	/*
+	 * public void delete(String name) { userDao.delete(name); }
+	 */
 
 	public int getmaxuno() {
 		return userDao.getmaxuno();
@@ -111,6 +115,10 @@ public class DevService {
 	
 	public void deleteProject(String username, int prono) {
 		projectDao.deleteProject(username, prono);
+	}
+
+	public void deleteAllProjects(String name) {
+		projectDao.deleteAllProjects(name);
 	}
 
 	public User getPortfolio(String name) {
@@ -497,5 +505,4 @@ public class DevService {
 		boardDao.replyListDelete(Board);
 		
 	}
-
 }
