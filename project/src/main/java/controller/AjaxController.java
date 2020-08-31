@@ -237,7 +237,8 @@ public class AjaxController {
 	public String withdraw (HttpServletRequest request, HttpSession session) {
 		String name = request.getParameter("name");
 		System.out.println(name);
-//		service.deleteAllProjects(name);
+		service.deleteAllProjects(name);
+//		service.deleteAll
 		service.withdraw(name);
 		
 		return "회원탈퇴가 완료되었습니다.";
