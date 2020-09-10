@@ -57,7 +57,7 @@ Spring Framework의 `@Vaild` Annotation을 이용한 유효성 검사
 #### :three:&nbsp;&nbsp; 프로젝트 추가/삭제, 공개 여부 설정 <br>
 `AJAX`방식으로 Controller에서 `JSON` 형태로 데이터를 전달받아 page reload없이 프로젝트 리스트를 추가할 수 있다.
 #### :four:&nbsp;&nbsp; 저장하기 버튼을 통해 정보 최신화
-![portfolio_edit](/img/portfolio_edit.PNG)
+![portfolio_edit](/img/protfolio_edit.png)
 
 <br>
 
@@ -67,4 +67,4 @@ Spring Framework의 `@Vaild` Annotation을 이용한 유효성 검사
 #### :two:&nbsp;&nbsp; Project Timeline
 '공개'로 설정한 프로젝트에 한해서 시간순으로 정렬하여 출력. <br>
 프로젝트명, 참여 인원, 프로젝트 기간, 프로젝트 설명, Github repository url, 사용된 기술 명시
-![portfolio](/img/portfolio.PNG)
+![portfolio](/img/portfolio.png)
